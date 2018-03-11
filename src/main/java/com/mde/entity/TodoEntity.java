@@ -1,25 +1,16 @@
 package com.mde.entity;
 
-import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.NotBlank;
-
 import com.mde.type.TodoStatusType;
 
-import javax.persistence.*;
 
-@Entity
 public class TodoEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+ 
     private long id;
 
-    @Column
+   
     private TodoStatusType status;
 
-    @NotBlank
-    @Length(max = 100)
-    @Column(length = 100)
     private String name;
 
     public TodoEntity(){

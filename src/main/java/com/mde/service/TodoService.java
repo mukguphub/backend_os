@@ -1,56 +1,51 @@
 package com.mde.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
-import com.mde.dao.TodoDAO;
-import com.mde.entity.TodoEntity;
-import com.mde.type.TodoStatusType;
-
+import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
+import com.mde.entity.TodoEntity;
+
 @Service
-@Transactional
 public class TodoService {
 
-    @Autowired
-    TodoDAO todoDAO;
-
+   List<TodoEntity> todoEntities = new ArrayList<>();
+	
     public List<TodoEntity> getAll() {
-        return todoDAO.findAll();
+        return todoEntities;
     }
 
     public boolean add(TodoEntity entity) {
-        if(todoDAO.findByName(entity.getName())!=null) return false;
-
-        entity.setStatus(TodoStatusType.OPEN);
-        todoDAO.saveOrUpdate(entity);
-        return true;
+    	return todoEntities.add(entity);
     }
 
     public boolean edit(TodoEntity entity) {
-        if(todoDAO.findById(entity.getId()) == null) return false;
-
-        TodoEntity existingTodoEntity = todoDAO.findByName(entity.getName());
-        if(existingTodoEntity!=null && existingTodoEntity.getId()!=entity.getId()) return false;
-
-        if(entity.getStatus()==null) return false;
-
-        todoDAO.saveOrUpdate(entity);
-        return true;
+        for(TodoEntity todoEntity : todoEntities){
+        	if(todoEntity.getId() == entity.getId()){
+        		if(todoEntities.remove(todoEntity)){
+        			todoEntities.add(entity);
+        			return true;
+        		}
+        		
+        	}
+        }
+        return false;
     }
 
     public boolean delete(long id) {
-        if(todoDAO.findById(id) == null) return false;
-
-        todoDAO.delete(id);
-        return true;
+    	 for(TodoEntity todoEntity : todoEntities){
+         	if(todoEntity.getId() == id){
+         		return todoEntities.remove(todoEntity);
+         	}
+         }
+        return false;
     }
 
 	public void save(TodoEntity todoEntity) {
-		todoDAO.save(todoEntity);
-		
+		//TODO : To check for duplicate at this time.
+		todoEntities.add(todoEntity);
+		return;
 	}
 
 }

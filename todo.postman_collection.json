@@ -1,0 +1,140 @@
+{
+	"info": {
+		"name": "todo",
+		"_postman_id": "9a9f6a57-baa6-42bc-9b44-13512eb21f88",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/save",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://{{HOSTNAME}}:{{PORT}}/save",
+					"protocol": "http",
+					"host": [
+						"{{HOSTNAME}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"save"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/todo",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":1,\"name\":\"test\"}"
+				},
+				"url": {
+					"raw": "http://{{HOSTNAME}}:{{PORT}}/todo",
+					"protocol": "http",
+					"host": [
+						"{{HOSTNAME}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"todo"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/new",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":1,\"name\":\"test\"}"
+				},
+				"url": {
+					"raw": "http://{{HOSTNAME}}:{{PORT}}/new",
+					"protocol": "http",
+					"host": [
+						"{{HOSTNAME}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"new"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://{{HOSTNAME}}:{{PORT}}/delete/0",
+					"protocol": "http",
+					"host": [
+						"{{HOSTNAME}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"delete",
+						"0"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/put",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":1,\"name\":\"test22222\"}"
+				},
+				"url": {
+					"raw": "http://{{HOSTNAME}}:{{PORT}}/edit",
+					"protocol": "http",
+					"host": [
+						"{{HOSTNAME}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"edit"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
