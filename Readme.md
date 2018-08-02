@@ -5,3 +5,4 @@ mvn clean package
 
 #Run Project
 mvn spring-boot:run -Dspring-boot.run.profiles=local
+
