@@ -4,5 +4,5 @@ This is a Class one code. Where users will learn how to build an spring boot app
 mvn clean package
 
 #Run Project
-mvn spring-boot:run -Dspring-boot.run.profiles=local 
+mvn spring-boot:run -Dspring-boot.run.profiles=local
 
