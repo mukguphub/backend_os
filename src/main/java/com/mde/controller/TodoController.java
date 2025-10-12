@@ -41,10 +41,10 @@ public class TodoController {
     	TodoEntity todoEntity = new TodoEntity();
     	todoEntity.setStatus(TodoStatusType.OPEN);
     	todoEntity.setName("Learn Spring Boot");
-		if (todoService.save(todoEntity)) {
-			return ResponseEntity.ok("Saved");
-		}
-		return ResponseEntity.status(HttpStatus.CONFLICT).body("Todo already exists");
+		  if (todoService.save(todoEntity)) {
+			 return ResponseEntity.ok("Saved");
+		  }
+		  return ResponseEntity.status(HttpStatus.CONFLICT).body("Todo already exists");
     }
    
     @RequestMapping(method = RequestMethod.GET, path = "/todo")

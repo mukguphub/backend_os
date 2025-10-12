@@ -4,8 +4,6 @@
 package com.mde.controller;
 
 import java.net.URISyntaxException;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -39,6 +37,18 @@ public class TodoControllerTest {
 		todoService = new StubTodoService();
 		TodoController controller = new TodoController(todoService);
 		mockMvc = MockMvcBuilders.standaloneSetup(controller)
+				.setValidator(new NoOpValidator())
+				.build();
+	}
+
+	private TodoController todoController;
+
+	@Before
+	public void setup() {
+		todoService = new TodoService();
+		todoController = new TodoController();
+		todoController.todoService = todoService;
+		mockMvc = MockMvcBuilders.standaloneSetup(todoController)
 				.setValidator(new NoOpValidator())
 				.build();
 	}
